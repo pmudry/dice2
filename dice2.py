@@ -65,12 +65,12 @@ def overlay_info(frame, dice, blobs):
     for d in dice:
         # Get textsize for text centering
         textsize = cv2.getTextSize(
-            str(d[0]), cv2.FONT_HERSHEY_PLAIN, 3, 2)[0]
+            str(d[0]), cv2.FONT_HERSHEY_SIMPLEX, 3, 2)[0]
 
         cv2.putText(frame, str(d[0]),
                     (int(d[1] - textsize[0] / 2),
                      int(d[2] + textsize[1] / 2)),
-                    cv2.FONT_HERSHEY_PLAIN, 3, (0, 255, 0), 2)
+                    cv2.FONT_HERSHEY_SIMPLEX, 3, (0, 255, 0), 2)
 
 
 # Initialize a video feed
