@@ -31,7 +31,7 @@ def get_dice_from_blobs(blobs):
 
     if len(X) > 0:
         # Important to set min_sample to 0, as a dice may only have one dot
-        clustering = cluster.DBSCAN(eps=40, min_samples=0).fit(X)
+        clustering = cluster.DBSCAN(eps=40, min_samples=1).fit(X)
 
         # Find the largest label assigned + 1, that's the number of dice found
         num_dice = max(clustering.labels_) + 1
@@ -73,9 +73,9 @@ def overlay_info(frame, dice, blobs):
                     cv2.FONT_HERSHEY_SIMPLEX, 3, (0, 255, 0), 2)
 
 
+print("Starting frame capture")
 # Initialize a video feed
-cap = cv2.VideoCapture(1)
-
+cap = cv2.VideoCapture(0)
 
 while(True):
     # Grab the latest image from the video feed
